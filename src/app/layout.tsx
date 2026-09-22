@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className="bg-light text-dark antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: company.name, url: company.domain, email: company.email, telephone: company.phone, address: { "@type": "PostalAddress", streetAddress: company.address[0], addressLocality: "Accra", addressCountry: "GH" }, description: company.statement, knowsAbout: ["Website development", "Mobile app development", "Custom software development", "Digital solutions"] }).replace(/</g, "\\u003c") }} />

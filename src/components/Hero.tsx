@@ -11,7 +11,7 @@ const MotionSection = motion.section;
 const MotionSpan = motion.span;
 const MotionH1 = motion.h1;
 const MotionP = motion.p;
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const Hero = () => {
   const shouldReduceMotion = useReducedMotion();

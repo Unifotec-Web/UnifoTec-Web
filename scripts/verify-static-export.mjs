@@ -7,7 +7,6 @@ const requiredFiles = [
   "services/index.html",
   "projects/index.html",
   "process/index.html",
-  "team/index.html",
   "contact/index.html",
   "privacy/index.html",
   "terms/index.html",

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { navigation } from "@/lib/public-content";
 
 const MotionNav = motion.nav;
 const MotionDiv = motion.div;
@@ -22,15 +23,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Industries", href: "/industries" },
-    { name: "Solutions", href: "/solutions" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const navLinks = navigation;
 
   return (
     <MotionNav

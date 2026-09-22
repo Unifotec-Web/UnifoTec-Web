@@ -29,3 +29,6 @@ Old paths (`/start-a-project`, `/services/website-dev`, and removed dynamic/samp
 ## Backend boundary
 
 No CMS/admin service is deployed with the public site. Any future backend requires a separate secured hosting environment, authentication, migrations, restricted CORS, audit logging, and documented operational ownership.
+# Launch checklist
+
+Before upload, record the artifact commit/SHA, take a cPanel backup, and upload the contents of `out/` including `.htaccess`. After upload, verify SSL, the canonical hostname, a 404 response, the contact `mailto:` action, responsive layouts, `sitemap.xml`, `robots.txt`, and cache clearing. Keep the prior artifact available for rollback.

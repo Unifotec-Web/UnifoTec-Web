@@ -26,7 +26,7 @@ const Navbar = () => {
   const navLinks = navigation;
 
   return (
-    <MotionNav
+    <MotionNav aria-label="Primary navigation"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -43,7 +43,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="w-9 h-9 bg-primary flex items-center justify-center rounded-lg mr-2 shadow-lg shadow-primary/20 overflow-hidden"
             >
-              <img src="/logo.jpeg" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width="36" height="36" className="w-full h-full object-cover" />
             </MotionDiv>
             <span className="text-dark font-bold text-lg tracking-tight uppercase group-hover:text-primary transition-colors">UNIFOTEC-WEB</span>
           </Link>
@@ -55,6 +55,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`text-sm font-medium transition-colors relative group ${
                     isActive ? "text-primary" : "text-[#64748B] hover:text-primary"
                   }`}
@@ -82,7 +83,8 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#1E293B] hover:text-primary focus:outline-none transition-colors"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} aria-controls="mobile-navigation"
+              className="text-[#1E293B] hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -99,7 +101,7 @@ const Navbar = () => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div className="px-4 pt-4 pb-8 space-y-2">
+            <div id="mobile-navigation" className="px-4 pt-4 pb-8 space-y-2">
               {navLinks.map((link, idx) => (
                 <MotionDiv
                   key={link.name}

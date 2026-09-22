@@ -19,3 +19,6 @@ The intended production shape is a static-first public marketing site deployed t
 - Static export is not yet configured.
 - Dynamic blog and project routes need an approved static-content model and static parameters before static export can be enabled.
 - A future same-origin cPanel form handler has not yet been designed or deployed; contact currently uses an explicit email-client fallback.
+# Discovery and privacy
+
+The static app emits `sitemap.xml` and `robots.txt` from App Router metadata routes. It has no runtime font download, analytics, third-party scripts, or form-submission endpoint; contact creates a mailto draft.

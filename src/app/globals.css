@@ -13,6 +13,10 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+.skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 100; transform: translateY(-200%); background: #005FFF; color: white; padding: .75rem 1rem; border-radius: .5rem; }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 3px solid #005FFF; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
 @layer utilities {
   .animate-float {

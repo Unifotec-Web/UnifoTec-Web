@@ -50,7 +50,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-20">
+    <main id="main-content" className="min-h-screen pt-20">
       <Navbar />
 
       {/* Hero Header */}
@@ -116,7 +116,7 @@ export default function ContactPage() {
                     Project enquiries
                  </h3>
                  <p className="text-grey text-sm font-medium leading-relaxed">
-                    Our technical team typically responds to all inquiries within 2-4 business hours with a preliminary architectural assessment.
+                    We review enquiries as capacity allows. Any next steps are discussed by email.
                  </p>
               </MDiv>
             </MDiv>
@@ -128,9 +128,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Full Name</label>
+                    <label htmlFor="full-name" className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Full Name</label>
                     <input
-                      type="text"
+                      id="full-name" type="text" autoComplete="name"
                       required
                       value={formData.fullName}
                       onChange={(e) => setFormData({...formData, fullName: e.target.value})}
@@ -139,9 +139,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Email Address</label>
                     <input
-                      type="email"
+                      id="email" type="email" autoComplete="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -159,9 +159,9 @@ export default function ContactPage() {
                 />
 
                 <div>
-                  <label className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Message / Requirements</label>
+                  <label htmlFor="message" className="block text-[10px] font-bold text-grey uppercase tracking-widest mb-2">Message / Requirements</label>
                   <textarea
-                    rows={5}
+                    id="message" rows={5}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}

@@ -3,8 +3,21 @@
 import React from 'react';
 import { Blog7 } from "@/components/blocks/blog7";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  summary: string;
+  label: string;
+  author: string;
+  published: string;
+  url: string;
+  image: string;
+}
+
 const Blog = () => {
-  const posts = [];
+  const posts: BlogPost[] = [];
+
+  if (posts.length === 0) return null;
 
   return (
     <div id="blog">

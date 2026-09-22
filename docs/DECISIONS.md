@@ -19,3 +19,7 @@ The launch site contains no public dashboard, CMS, FastAPI runtime, SQLite datab
 ## 2026-09-22 — Canonical static routes
 
 `/start-project` and `/services/web-development` are canonical. Dynamic and sample blog/project detail routes are removed; `/projects` is an honest static landing page until verified case studies are approved.
+
+## 2026-09-22 — cPanel static export
+
+The public site uses Next static export with trailing slashes and unoptimized images. CI publishes the verified `out/` directory as the cPanel deployment artifact; Apache behavior is supplied by the tracked `.htaccess` template.

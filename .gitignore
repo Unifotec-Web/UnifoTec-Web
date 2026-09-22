@@ -28,6 +28,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
+.env.*
+!.env.example
 .env*.local
 
 # vercel
@@ -42,4 +45,13 @@ backend/__pycache__/
 backend/*.db
 backend/.venv
 venv/
-.env
+
+# IDE and editor state
+.idea/
+.vscode/
+*.iml
+
+# Test and tool output
+test-results/
+playwright-report/
+vitest.config.ts.timestamp-*

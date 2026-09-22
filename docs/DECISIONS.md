@@ -15,3 +15,7 @@ Linting, TypeScript checks, lightweight unit tests, CI, contributor guidance, an
 ## 2026-09-22 — No public admin or third-party intake at launch
 
 The launch site contains no public dashboard, CMS, FastAPI runtime, SQLite database, AI assistant, or third-party lead/chat webhook. Contact uses a clearly disclosed email-client fallback. Any future CMS/admin must be separately authenticated and deployed with migrations, restricted CORS, and audit logging.
+
+## 2026-09-22 — Canonical static routes
+
+`/start-project` and `/services/web-development` are canonical. Dynamic and sample blog/project detail routes are removed; `/projects` is an honest static landing page until verified case studies are approved.

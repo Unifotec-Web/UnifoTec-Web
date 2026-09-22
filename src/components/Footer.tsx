@@ -27,10 +27,10 @@ const Footer = () => {
             </Link>
             <p className="text-grey text-sm font-medium italic mb-6">Build - Connect - Grow</p>
             <div className="flex space-x-4">
-              <SocialLink icon={Facebook} />
-              <SocialLink icon={Twitter} />
-              <SocialLink icon={Instagram} />
-              <SocialLink icon={Linkedin} />
+              <SocialIcon icon={Facebook} />
+              <SocialIcon icon={Twitter} />
+              <SocialIcon icon={Instagram} />
+              <SocialIcon icon={Linkedin} />
             </div>
           </MDiv>
 
@@ -75,8 +75,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center text-[10px] text-grey font-medium uppercase tracking-tighter">
           <p>© 2025 UNIFOTEC-WEB. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>
@@ -94,14 +94,14 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
   </li>
 );
 
-const SocialLink = ({ icon: Icon }: { icon: any }) => (
+const SocialIcon = ({ icon: Icon }: { icon: any }) => (
   <MDiv
     whileHover={{ y: -3, scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
   >
-    <Link href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-grey hover:bg-primary hover:text-white transition-all shadow-sm">
+    <span aria-hidden="true" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-grey shadow-sm">
       <Icon className="w-4 h-4" />
-    </Link>
+    </span>
   </MDiv>
 );
 

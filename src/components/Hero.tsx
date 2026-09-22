@@ -91,7 +91,7 @@ const Hero = () => {
               variants={staggerItem}
               className="flex flex-wrap gap-4"
             >
-              <Link href="/start-a-project">
+              <Link href="/start-project">
                 <MotionButton
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}

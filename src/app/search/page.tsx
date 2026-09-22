@@ -26,7 +26,7 @@ export default function SearchPage() {
     { title: "Next.js 15 Implementation Guide", type: "Article", path: "/blog/nextjs-15-enterprise" },
     { title: "Mobile App Development Services", type: "Service", path: "/services/mobile-app" },
     { title: "Custom Software Solutions", type: "Service", path: "/services/custom-software" },
-    { title: "FinTech Payment Engine Case Study", type: "Project", path: "/projects/fintech-payment-engine" },
+    { title: "Projects", type: "Project", path: "/projects" },
   ];
 
   return (

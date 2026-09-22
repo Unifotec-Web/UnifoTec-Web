@@ -6,6 +6,8 @@ The public site is a Next.js 15 App Router application using React, TypeScript, 
 
 The launch site has no dashboard, CMS, FastAPI runtime, or third-party lead/chat webhook. Its public content is repository-managed and static-first.
 
+Canonical public routes include `/start-project` and `/services/web-development`; blog and project detail pages are explicit static pages only.
+
 ## Target direction
 
 The intended production shape is a static-first public marketing site deployed to cPanel, with reviewed repository-managed content. Any future CMS or admin service must be separately deployed, authenticated, migration-backed, restricted by CORS, and audit logged.

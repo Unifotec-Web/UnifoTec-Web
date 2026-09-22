@@ -31,33 +31,6 @@ export default function BlogPage() {
       readTime: "8 min read",
       slug: "nextjs-15-enterprise",
     },
-    {
-      title: "Scaling M-Pesa Integrations for Global Platforms",
-      excerpt: "Best practices for building reliable, secure, and fast payment pipelines using Daraja API and Node.js microservices.",
-      category: "FinTech",
-      author: "Lisa Wong",
-      date: "Oct 20, 2024",
-      readTime: "12 min read",
-      slug: "mpesa-scaling",
-    },
-    {
-      title: "Design Systems: Bridging the Gap Between Figma and Code",
-      excerpt: "How we use atomic design principles and Tailwind CSS to create maintainable and scalable UI libraries for our clients.",
-      category: "Design",
-      author: "Sarah Chen",
-      date: "Oct 15, 2024",
-      readTime: "10 min read",
-      slug: "design-systems-figma",
-    },
-    {
-      title: "Artificial Intelligence in Business Automation",
-      excerpt: "Real-world use cases of how LLMs and autonomous agents are driving operational efficiency in modern enterprises.",
-      category: "AI",
-      author: "David Kariuki",
-      date: "Oct 10, 2024",
-      readTime: "15 min read",
-      slug: "ai-automation",
-    },
   ];
 
   return (

@@ -96,7 +96,7 @@ export default function BusinessAutomationDetailPage() {
                 <Zap className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold mb-2">Scale your output?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's design a custom automation roadmap that doubles your team's efficiency.</p>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss an automation roadmap for your team&apos;s workflow needs.</p>
               <Link href="/contact" className="w-full bg-accent hover:bg-emerald-600 text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-accent/20 transition-all">
                 Audit My Workflows
               </Link>
@@ -157,7 +157,7 @@ export default function BusinessAutomationDetailPage() {
                 </div>
                 <div className="flex items-center text-xs font-bold text-accent uppercase tracking-wider">
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  <span>Always Online</span>
+                  <span>Workflow support</span>
                 </div>
               </MDiv>
             ))}
@@ -172,7 +172,7 @@ export default function BusinessAutomationDetailPage() {
             <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-2">The Stack</h2>
             <h3 className="text-3xl font-bold text-dark">Technologies We Use</h3>
             <p className="text-grey text-sm max-w-md mx-auto mt-2">
-              We leverage the power of AI and reliable scripting to ensure 24/7 autonomous operations.
+              We can discuss suitable automation tools and scripting for your operational needs.
             </p>
           </div>
 

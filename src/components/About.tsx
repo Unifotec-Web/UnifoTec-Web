@@ -54,33 +54,12 @@ const About = () => {
                </MDiv>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
-              <StatItem number="7" label="Team Members" />
-              <StatItem number="100+" label="Projects Completed" />
-              <StatItem number="100%" label="Client Satisfaction" />
-            </div>
+            <p className="text-center text-sm font-medium text-[#64748B]">We plan each engagement around its goals, requirements, and approval process.</p>
           </div>
         </div>
       </div>
     </MotionSection>
   );
 };
-
-const StatItem = ({ number, label }: { number: string; label: string }) => (
-  <MDiv
-    variants={staggerItem}
-    className="text-center"
-  >
-    <MDiv
-      initial={{ scale: 0.5, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 100 }}
-      className="text-4xl font-extrabold text-[#0F172A] mb-1"
-    >
-      {number}
-    </MDiv>
-    <div className="text-xs font-bold text-[#64748B] uppercase tracking-tighter">{label}</div>
-  </MDiv>
-);
 
 export default About;

@@ -3,9 +3,9 @@ import { Monitor, Smartphone, Settings, Shield, Layout } from 'lucide-react';
 
 const Features = () => {
   const items = [
-    { icon: Monitor, title: "Web Development", sub: "Responsive & Secure" },
+    { icon: Monitor, title: "Web Development", sub: "Responsive Design" },
     { icon: Smartphone, title: "Mobile Apps", sub: "Android & iOS" },
-    { icon: Settings, title: "Software Solutions", sub: "Custom & Scalable" },
+    { icon: Settings, title: "Software Solutions", sub: "Custom Workflows" },
     { icon: Shield, title: "IT Services", sub: "Support & Maintenance" },
     { icon: Layout, title: "Digital Platforms", sub: "For Your Business" },
   ];

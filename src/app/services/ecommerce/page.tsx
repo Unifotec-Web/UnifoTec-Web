@@ -96,7 +96,7 @@ export default function EcommerceDetailPage() {
                 <ShoppingCart className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold mb-2">Launch an online empire?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's craft an elite custom storefront with zero third-party platform limitations.</p>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss a storefront suited to your products, operations, and platform needs.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Launch My Storefront
               </Link>

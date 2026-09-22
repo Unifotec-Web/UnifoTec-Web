@@ -61,7 +61,7 @@ export default function ContactPage() {
               Let's Engineer Your <br /><span className="text-primary">Next Digital Asset</span>
             </h1>
             <p className="text-grey text-lg max-w-2xl mx-auto font-medium">
-              Have a complex technical challenge? Our solutions architects are ready to help you build scalable software systems.
+              Have a complex technical challenge? Tell us about it and we can discuss practical software options.
             </p>
           </FadeUp>
         </div>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-16 -mt-16"></div>
                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                     <Clock className="w-5 h-5 text-primary" />
-                    Rapid Response SLA
+                    Project enquiries
                  </h3>
                  <p className="text-grey text-sm font-medium leading-relaxed">
                     Our technical team typically responds to all inquiries within 2-4 business hours with a preliminary architectural assessment.

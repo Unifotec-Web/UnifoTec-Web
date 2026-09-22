@@ -23,3 +23,11 @@ The launch site contains no public dashboard, CMS, FastAPI runtime, SQLite datab
 ## 2026-09-22 — cPanel static export
 
 The public site uses Next static export with trailing slashes and unoptimized images. CI publishes the verified `out/` directory as the cPanel deployment artifact; Apache behavior is supplied by the tracked `.htaccess` template.
+
+## 2026-09-22 — Verified launch claims and role-only team
+
+Launch copy avoids unsupported results, guarantees, fixed delivery timelines, and service-level promises. Timelines and operational commitments are scoped in quotations and written agreements. `/team` publishes only the seven approved roles until individual identities are approved.
+
+## 2026-09-22 — External-origin inventory
+
+`https://unifotecweb.com` is the approved first-party origin. The W3C SVG namespace is an XML identifier, not a network dependency. The copied template promotional URL and its unused demonstration components were removed.

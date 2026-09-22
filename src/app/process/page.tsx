@@ -55,7 +55,7 @@ export default function ProcessPage() {
     },
     {
       title: "Maintenance & Scale",
-      desc: "24/7 monitoring and performance optimization to ensure your platform grows with your users.",
+      desc: "Maintenance, monitoring, and improvement options discussed for the needs of your platform.",
       icon: Wrench,
       tags: ["Support", "Monitoring", "Optimization"],
     },

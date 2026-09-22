@@ -23,19 +23,19 @@ export default function FAQPage() {
   const faqs = [
     {
       q: "What is your typical project timeline?",
-      a: "For standard web applications, timelines range from 4-8 weeks. Complex enterprise software or multi-platform mobile apps typically require 3-6 months depending on the scope of discovery and QA requirements.",
+      a: "Timelines depend on scope, integrations, content readiness, and approval cycles. Your quotation and project plan will provide an estimate for the agreed work.",
     },
     {
       q: "Do you provide ongoing technical support?",
-      a: "Yes, we offer comprehensive managed support tiers that include 24/7 uptime monitoring, security patching, and iterative feature development for all systems we engineer.",
+      a: "Support needs are discussed as part of each engagement. Any maintenance, monitoring, patching, or enhancement work is defined in the agreed scope.",
     },
     {
       q: "Can you integrate with existing legacy systems?",
-      a: "Absolutely. Our architects specialize in digital transformation, bridging the gap between legacy databases/APIs and modern cloud-native architectures without disrupting current operations.",
+      a: "We can assess existing systems and discuss practical integration or modernization options as part of discovery.",
     },
     {
       q: "How do you handle project security and data privacy?",
-      a: "We follow industry best practices including end-to-end encryption, strict RBAC, and regular security audits. All projects are built with PCI-DSS and GDPR standards in mind where applicable.",
+      a: "Security and privacy requirements are reviewed during discovery. Appropriate controls and any applicable compliance obligations are defined in the project scope.",
     },
     {
       q: "What technology stack do you use?",

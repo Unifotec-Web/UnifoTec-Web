@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { TestimonialsSection } from "@/components/blocks/testimonials-with-marquee";
-import { fetchTeam } from '@/lib/api';
 
 const defaultTeam = [
   {
@@ -26,17 +25,7 @@ const defaultTeam = [
 ];
 
 const Team = () => {
-  const [team, setTeam] = useState<any[]>(defaultTeam);
-
-  useEffect(() => {
-    fetchTeam()
-      .then(data => {
-        if (data && data.length > 0) setTeam(data);
-      })
-      .catch(err => console.warn("Using default team", err));
-  }, []);
-
-  const testimonials = team.map(member => ({
+  const testimonials = defaultTeam.map(member => ({
     author: {
       name: member.name,
       handle: member.role,

@@ -7,7 +7,7 @@ A high-fidelity, multi-page technical website for UNIFOTEC-WEB featuring advance
 - **Styling**: Tailwind CSS.
 - **Animations**: Framer Motion & Lenis Smooth Scroll.
 - **AI Assistant**: State-driven floating assistant connected via webhooks.
-- **Backend**: FastAPI with SQLite database.
+- **Launch model**: Static-first public marketing site; no public CMS or admin service is included.
 - **Responsive**: Fully optimized for mobile, tablet, and desktop viewports.
 
 ## Getting Started
@@ -16,11 +16,4 @@ A high-fidelity, multi-page technical website for UNIFOTEC-WEB featuring advance
 ```bash
 npm install
 npm run dev
-```
-
-### Backend
-```bash
-cd backend
-pip install fastapi uvicorn pydantic
-python main.py
 ```

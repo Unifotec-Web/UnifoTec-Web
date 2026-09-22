@@ -11,3 +11,7 @@ The public company site targets static cPanel hosting. Runtime administration an
 ## 2026-09-22 — Tooling baseline before functional change
 
 Linting, TypeScript checks, lightweight unit tests, CI, contributor guidance, and release documentation are established before route, security, dependency, or content remediation. The known blockers remain unresolved in this commit.
+
+## 2026-09-22 — No public admin or third-party intake at launch
+
+The launch site contains no public dashboard, CMS, FastAPI runtime, SQLite database, AI assistant, or third-party lead/chat webhook. Contact uses a clearly disclosed email-client fallback. Any future CMS/admin must be separately authenticated and deployed with migrations, restricted CORS, and audit logging.

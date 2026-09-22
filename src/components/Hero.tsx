@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { staggerContainer, staggerItem, scaleIn } from './motion/variants';
-import { fetchHero } from '@/lib/api';
 
 const MotionDiv = motion.div;
 const MotionSection = motion.section;
@@ -15,16 +14,10 @@ const MotionP = motion.p;
 const MotionButton = motion.button;
 
 const Hero = () => {
-  const [heroData, setHeroData] = useState({
+  const heroData = {
     title: "Technology That Connects Businesses to the Digital World",
     subtitle: "We provide website development, mobile application development, software solutions, IT services, digital platforms, and technology support for businesses, organizations, institutions, and entrepreneurs."
-  });
-
-  useEffect(() => {
-    fetchHero()
-      .then(data => setHeroData(data))
-      .catch(err => console.warn("Backend not reachable, using local fallback", err));
-  }, []);
+  };
 
   return (
     <MotionSection id="home" className="relative pt-20 pb-16 bg-white overflow-hidden min-h-screen flex items-center">

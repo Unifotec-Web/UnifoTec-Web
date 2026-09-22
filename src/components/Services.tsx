@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Monitor,
   Smartphone,
@@ -17,13 +17,8 @@ import { motion } from 'framer-motion';
 import MotionSection from './motion/MotionSection';
 import { staggerItem } from './motion/variants';
 import RadialOrbitalTimeline, { TimelineItem } from "@/components/ui/radial-orbital-timeline";
-import { fetchServices } from '@/lib/api';
 
 const MDiv = motion.div;
-
-const iconMap: Record<string, any> = {
-  Monitor, Smartphone, Settings, ShoppingCart, CreditCard, Zap, Palette, Cloud
-};
 
 const defaultServices: TimelineItem[] = [
   {
@@ -117,23 +112,6 @@ const defaultServices: TimelineItem[] = [
 ];
 
 const Services = () => {
-  const [services, setServices] = useState<TimelineItem[]>(defaultServices);
-
-  useEffect(() => {
-    fetchServices()
-      .then(data => {
-        if (data && data.length > 0) {
-          const mapped = data.map((s: any) => ({
-            ...s,
-            icon: iconMap[s.icon] || Monitor,
-            relatedIds: s.relatedIds || []
-          }));
-          setServices(mapped);
-        }
-      })
-      .catch(err => console.warn("Backend services unreachable, using local fallback", err));
-  }, []);
-
   return (
     <MotionSection id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,7 +130,7 @@ const Services = () => {
         </div>
 
         <MDiv variants={staggerItem} className="w-full">
-           <RadialOrbitalTimeline timelineData={services} />
+           <RadialOrbitalTimeline timelineData={defaultServices} />
         </MDiv>
       </div>
     </MotionSection>

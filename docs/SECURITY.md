@@ -4,17 +4,12 @@ This document records known risks; it does not claim they are resolved.
 
 ## Current blockers
 
-- `next@15.1.0` has reported critical and high vulnerabilities. A framework upgrade is deliberately outside this tooling-only commit.
-- `backend/main.py` exposes unauthenticated create, update, and delete operations for public content.
-- The FastAPI CORS policy permits every origin while credentials are enabled.
-- Dashboard routes have no authentication or authorization gate.
-- The contact form and AI assistant contain browser-visible n8n webhook URLs, creating spam and abuse exposure.
-- SQLite storage is local to the process and has no migration, backup, access-control, or audit-log strategy.
+- No public CMS/admin, FastAPI runtime, SQLite store, or third-party lead/chat webhook is included in the launch site.
+- Third-party lead or chat webhooks are prohibited unless explicitly approved and placed behind an appropriate protected integration boundary.
+- The contact page opens a visitor-controlled email draft and does not transmit visitor data from the website.
 
 ## Required remediation sequence
 
-1. Upgrade dependencies in a dedicated security commit.
-2. Remove public access to the dashboard and require authentication, authorization, and audit logging before any admin deployment.
-3. Restrict CORS to trusted origins and validate, rate-limit, and log API input.
-4. Move webhook access to a server-side or vetted form-provider integration with abuse controls.
-5. Establish secret management, backups, monitoring, and an incident-response owner before deploying a backend.
+1. Any future CMS/admin must be separately deployed with authentication, authorization, migrations, restricted CORS, and audit logging.
+2. A future contact handler must be same-origin or explicitly approved, with input validation, abuse controls, and privacy review.
+3. Establish secret management, backups, monitoring, and an incident-response owner before deploying any backend.

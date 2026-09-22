@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AIAssistant from "@/components/AIAssistant";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +20,6 @@ export default function RootLayout({
       <body className={`${inter.className} bg-light text-dark antialiased`}>
         <SmoothScroll>
           {children}
-          <AIAssistant />
         </SmoothScroll>
       </body>
     </html>

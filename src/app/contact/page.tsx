@@ -13,8 +13,6 @@ import {
   MapPin,
   Send,
   Clock,
-  Loader2,
-  CheckCircle2
 } from "lucide-react";
 import CustomSelect from "@/components/CustomSelect";
 
@@ -22,7 +20,7 @@ const MDiv = motion.div;
 
 export default function ContactPage() {
   const [selectedService, setSelectedService] = useState("Web Development");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [emailAppOpened, setEmailAppOpened] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -37,38 +35,18 @@ export default function ContactPage() {
     "Cloud Infrastructure",
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const response = await fetch("https://jerries56.app.n8n.cloud/webhook/c3969006-ecf7-4dd4-92d4-d0d6dd7da4b0", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          service: selectedService,
-          submittedAt: new Date().toISOString(),
-          source: "UNIFOTEC Contact Form"
-        }),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ fullName: "", email: "", message: "" });
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        console.error("Server responded with error:", response.status);
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
-      }
-    } catch (error) {
-      console.error("Fetch failure:", error);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
+    const subject = `Website inquiry: ${selectedService}`;
+    const body = [
+      `Name: ${formData.fullName}`,
+      `Email: ${formData.email}`,
+      `Service: ${selectedService}`,
+      "",
+      formData.message,
+    ].join("\n");
+    window.location.href = `mailto:hello@unifotecweb.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setEmailAppOpened(true);
   };
 
   return (
@@ -114,8 +92,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-dark text-lg mb-1">Electronic Mail</h4>
-                      <p className="text-grey text-sm font-medium">info@unifotec-web.com</p>
-                      <p className="text-grey text-sm font-medium">support@unifotec-web.com</p>
+                      <p className="text-grey text-sm font-medium">hello@unifotecweb.com</p>
                     </div>
                   </div>
 
@@ -125,7 +102,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-dark text-lg mb-1">Direct Line</h4>
-                      <p className="text-grey text-sm font-medium">+233 24 123 4567</p>
+                      <p className="text-grey text-sm font-medium">+233 24 499 3720</p>
                       <p className="text-grey text-sm font-medium">Mon-Fri, 8AM - 6PM GMT</p>
                     </div>
                   </div>
@@ -147,6 +124,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <MDiv variants={staggerItem} className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-xl shadow-slate-200/50">
               <h3 className="text-2xl font-bold text-dark mb-8">Send a Technical Inquiry</h3>
+              <p className="text-grey text-sm font-medium -mt-4 mb-8">Submitting opens your email application with a prefilled draft; it does not send your inquiry automatically.</p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -194,28 +172,14 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  disabled={status === "loading"}
-                  className={`w-full font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group ${
-                    status === "success"
-                      ? "bg-accent text-white"
-                      : status === "error"
-                      ? "bg-red-500 text-white"
-                      : "bg-primary hover:bg-primary-dark text-white shadow-primary/20"
-                  }`}
+                  className="w-full font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group bg-primary hover:bg-primary-dark text-white shadow-primary/20"
                 >
-                  {status === "loading" ? (
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                  ) : status === "success" ? (
-                    <><CheckCircle2 className="w-5 h-5" /> Inquiry Sent Successfully!</>
-                  ) : status === "error" ? (
-                    "Failed to Send. Try Again."
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                      Send Inquiry
-                    </>
-                  )}
+                  <>
+                    <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    Open Email App
+                  </>
                 </button>
+                {emailAppOpened && <p className="text-center text-sm font-medium text-grey">Your email application should now be open. Review the draft and send it when ready.</p>}
               </form>
             </MDiv>
           </div>

@@ -65,8 +65,8 @@ const Footer = () => {
           <MDiv variants={staggerItem} className="col-span-1">
             <h4 className="font-bold text-dark text-sm uppercase tracking-wider mb-6">Contact Us</h4>
             <ul className="space-y-6">
-              <ContactItem icon={Phone} text="+254 700 123 456" />
-              <ContactItem icon={Mail} text="info@unifotec-web.com" />
+              <ContactItem icon={Phone} text="+233 24 499 3720" />
+              <ContactItem icon={Mail} text="hello@unifotecweb.com" />
               <ContactItem icon={MapPin} text="Nairobi, Kenya" />
             </ul>
           </MDiv>

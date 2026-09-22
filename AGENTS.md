@@ -28,4 +28,4 @@ Do not use `npm audit fix --force`. Dependency upgrades require a focused review
 
 ## Deployment boundary
 
-The public site is being prepared for static cPanel hosting. The current FastAPI/SQLite backend and dashboard are not approved for public production exposure; see `docs/SECURITY.md` and `docs/DEPLOYMENT.md`.
+The public site is being prepared for static cPanel hosting and includes no public FastAPI/SQLite backend or dashboard. See `docs/SECURITY.md` and `docs/DEPLOYMENT.md` for future-service requirements.

@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   return (
-    <MotionSection id="home" className="relative pt-20 pb-16 bg-white overflow-hidden min-h-screen flex items-center">
+    <MotionSection id="home" className="relative pt-20 pb-16 surface-base overflow-hidden min-h-screen flex items-center">
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-50 via-white to-slate-100"></div>
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,95,255,0.12),transparent_38%),radial-gradient(circle_at_20%_80%,rgba(15,23,42,0.08),transparent_42%)]"></div>
 
@@ -99,7 +99,7 @@ const Hero = () => {
             variants={scaleIn}
             initial="hidden"
             animate="visible"
-            className="lg:w-[50%] relative flex justify-center items-center h-full"
+            className="hidden lg:flex lg:w-[50%] relative justify-center items-center h-full"
           >
             {/* Devices Mockup Placeholder */}
             <MotionDiv

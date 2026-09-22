@@ -12,7 +12,7 @@ const MButton = motion.button;
 
 const About = () => {
   return (
-    <MotionSection id="about" className="py-20 bg-white">
+    <MotionSection id="about" className="py-20 surface-soft border-y border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <MDiv variants={staggerItem} className="lg:w-1/2">

@@ -13,6 +13,13 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+@layer components {
+  .surface-base { background-color: #fff; background-image: radial-gradient(circle at 82% 12%, rgb(0 95 255 / 0.055), transparent 28rem); }
+  .surface-soft { background-color: #f5f8fc; background-image: radial-gradient(circle at 12% 18%, rgb(0 95 255 / 0.05), transparent 24rem); }
+  .surface-accent { background-color: #0f172a; background-image: radial-gradient(circle at 85% 10%, rgb(0 95 255 / 0.75), transparent 34rem), linear-gradient(135deg, #0f172a, #123c78); }
+  .surface-grid { background-image: radial-gradient(rgb(0 95 255 / 0.12) 1px, transparent 1px); background-size: 28px 28px; }
+}
 .skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 100; transform: translateY(-200%); background: #005FFF; color: white; padding: .75rem 1rem; border-radius: .5rem; }
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 3px solid #005FFF; outline-offset: 3px; }

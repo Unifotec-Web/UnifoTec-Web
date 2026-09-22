@@ -14,14 +14,14 @@ const MP = motion.p;
 
 const CTA = () => {
   return (
-    <MotionSection id="contact" className="py-20 bg-white">
+    <MotionSection id="contact" className="py-20 surface-soft border-t border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-primary rounded-[2rem] p-12 md:p-16 relative overflow-hidden shadow-2xl shadow-primary/20"
+          className="surface-accent rounded-[2rem] p-12 md:p-16 relative overflow-hidden shadow-2xl shadow-primary/20"
         >
           {/* Background pattern */}
           <MDiv

@@ -113,7 +113,7 @@ const defaultServices: TimelineItem[] = [
 
 const Services = () => {
   return (
-    <MotionSection id="services" className="py-20 bg-white">
+    <MotionSection id="services" className="py-20 surface-base border-b border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-12">
           <MDiv variants={staggerItem}>

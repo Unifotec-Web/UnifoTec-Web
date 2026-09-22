@@ -11,7 +11,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="bg-white py-10 border-b border-gray-100">
+    <div className="surface-soft py-10 border-y border-blue-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between items-center gap-6">
           {items.map((item, idx) => (

@@ -28,7 +28,7 @@ const WorkProcess = () => {
   ];
 
   return (
-    <MotionSection id="process" className="py-20 bg-white">
+    <MotionSection id="process" className="py-20 surface-soft border-y border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MDiv variants={staggerItem} className="mb-16">
           <h2 className="text-[#0F172A] font-bold text-2xl mb-2">Our Work Process</h2>

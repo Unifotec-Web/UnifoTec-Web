@@ -32,7 +32,7 @@ const Sectors = () => {
   ];
 
   return (
-    <MotionSection className="py-20 bg-gray-50">
+    <MotionSection className="py-20 surface-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <MDiv variants={staggerItem} className="mb-12">
           <h2 className="text-[#0F172A] font-bold text-2xl mb-2">Technology Solutions for Different Sectors</h2>

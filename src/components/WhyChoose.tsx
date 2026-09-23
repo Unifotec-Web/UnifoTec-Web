@@ -26,7 +26,7 @@ const WhyChoose = () => {
   ];
 
   return (
-    <MotionSection className="py-20 bg-[#0F172A] text-white">
+    <MotionSection className="py-12 sm:py-16 lg:py-20 bg-[#0F172A] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MDiv variants={staggerItem} className="text-center mb-16">
           <h2 className="text-primary font-bold text-xs uppercase tracking-widest mb-3">WHY CHOOSE US</h2>

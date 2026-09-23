@@ -11,6 +11,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import MotionSection from './motion/MotionSection';
 import { staggerContainer, staggerItem } from './motion/variants';
 
@@ -28,11 +29,11 @@ const WorkProcess = () => {
   ];
 
   return (
-    <MotionSection id="process" className="py-20 surface-soft border-y border-blue-100/50">
+    <MotionSection id="process" className="py-12 sm:py-16 lg:py-20 surface-soft border-y border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <MDiv variants={staggerItem} className="mb-16">
-          <h2 className="text-[#0F172A] font-bold text-2xl mb-2">Our Work Process</h2>
-          <p className="text-[#64748B] text-sm italic">From idea to launch, we follow a clear and proven process.</p>
+        <MDiv variants={staggerItem} className="mb-16 flex items-center justify-between gap-6">
+          <div><h2 className="text-[#0F172A] font-bold text-2xl mb-2">Our Work Process</h2><p className="text-[#64748B] text-sm italic">From idea to launch, we follow a clear and proven process.</p></div>
+          <Image src="/images/illustrations/process.svg" alt="Illustration of connected project delivery milestones." width={160} height={70} loading="lazy" className="hidden h-auto w-40 sm:block" />
         </MDiv>
 
         <div className="relative">

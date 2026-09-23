@@ -6,6 +6,10 @@ The public site is a Next.js 15 App Router application using React, TypeScript, 
 
 The launch site has no dashboard, CMS, FastAPI runtime, or third-party lead/chat webhook. Its public content is repository-managed and static-first.
 
+## Visual illustration standard
+
+Purposeful product illustrations are local SVG assets in `public/images/illustrations`. Reusable visual components may reference them with Next Image; non-hero illustrations use lazy loading. The hero capability carousel has fixed dimensions, native keyboard controls, and pauses automatic rotation for hover, focus, inactive tabs, and reduced-motion preferences. It has no runtime image origin or third-party carousel dependency.
+
 Next.js is configured for `output: "export"`, trailing-slash directory URLs, and unoptimized images so the public artifact can be served by Apache/cPanel without a Node.js production server.
 
 Canonical public routes include `/start-project` and `/services/web-development`; blog and project detail pages are explicit static pages only.

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MotionSection from "@/components/motion/MotionSection";
@@ -57,6 +58,7 @@ export default function ContactPage() {
       <section className="bg-white py-24 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeUp>
+            <Image src="/images/illustrations/automation-cloud.svg" alt="Illustration of connected cloud services and automation." width={180} height={135} loading="lazy" className="mx-auto mb-6 h-auto w-36" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark mb-6 tracking-tight text-balance">
               Let's Engineer Your <br /><span className="text-primary">Next Digital Asset</span>
             </h1>

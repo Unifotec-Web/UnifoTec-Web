@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/lib/public-content";
+import { isActiveNavigationPath } from "@/lib/navigation";
 
 const MotionNav = motion.nav;
 const MotionDiv = motion.div;
@@ -50,7 +51,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = isActiveNavigationPath(pathname, link.href);
               return (
                 <Link
                   key={link.name}
@@ -102,7 +103,9 @@ const Navbar = () => {
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
             <div id="mobile-navigation" className="px-4 pt-4 pb-8 space-y-2">
-              {navLinks.map((link, idx) => (
+              {navLinks.map((link, idx) => {
+                const isActive = isActiveNavigationPath(pathname, link.href);
+                return (
                 <MotionDiv
                   key={link.name}
                   initial={{ opacity: 0, x: 20 }}
@@ -111,13 +114,14 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className="block px-3 py-4 text-[#64748B] hover:text-primary font-bold text-lg border-b border-gray-50"
+                    aria-current={isActive ? "page" : undefined}
+                    className={`block px-3 py-4 font-bold text-lg border-b border-gray-50 ${isActive ? "text-primary" : "text-[#64748B] hover:text-primary"}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </Link>
                 </MotionDiv>
-              ))}
+              )})}
               <MotionDiv
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}

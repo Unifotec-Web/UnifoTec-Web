@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import MotionSection from './motion/MotionSection';
@@ -12,9 +13,9 @@ const MButton = motion.button;
 
 const About = () => {
   return (
-    <MotionSection id="about" className="py-20 surface-soft border-y border-blue-100/50">
+    <MotionSection id="about" className="py-12 sm:py-16 lg:py-20 surface-soft border-y border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
           <MDiv variants={staggerItem} className="lg:w-1/2">
             <h2 className="text-primary font-bold text-3xl mb-4">About Us</h2>
             <h3 className="text-xl font-bold text-[#0F172A] mb-6 italic">Innovative. Reliable. Client-Focused.</h3>
@@ -33,26 +34,9 @@ const About = () => {
           </MDiv>
 
           <div className="lg:w-1/2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-               <MDiv
-                 variants={scaleIn}
-                 className="col-span-1 bg-gray-100 rounded-xl h-48 overflow-hidden relative group"
-               >
-                  <MDiv
-                    whileHover={{ scale: 1.1 }}
-                    className="absolute inset-0 bg-[#0F172A]/10"
-                  ></MDiv>
-               </MDiv>
-               <MDiv
-                 variants={scaleIn}
-                 className="col-span-1 bg-gray-100 rounded-xl h-48 overflow-hidden relative group"
-               >
-                  <MDiv
-                    whileHover={{ scale: 1.1 }}
-                    className="absolute inset-0 bg-[#0F172A]/10"
-                  ></MDiv>
-               </MDiv>
-            </div>
+            <MDiv variants={scaleIn} className="relative mx-auto max-w-lg overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm">
+              <Image src="/images/illustrations/discovery.svg" alt="Abstract illustration of connected project ideas and milestones." width={640} height={400} loading="lazy" className="h-auto w-full" />
+            </MDiv>
 
             <p className="text-center text-sm font-medium text-[#64748B]">We plan each engagement around its goals, requirements, and approval process.</p>
           </div>

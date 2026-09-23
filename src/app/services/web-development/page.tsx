@@ -27,22 +27,22 @@ export default function WebDevelopmentDetailPage() {
   const keyFeatures = [
     {
       title: "Next.js 15 App Router Architecture",
-      desc: "Blazing fast server-side rendering (SSR), static site generation (SSG), and incremental static regeneration (ISR) for fluid UX.",
+      desc: "Server-side rendering, static generation, and incremental regeneration options for suitable web experiences.",
       icon: Code2,
     },
     {
-      title: "Ultra Responsive Fluid Layouts",
-      desc: "Pixel-perfect compatibility across smartphones, foldables, wide desktop screens, and multi-window environments via Tailwind CSS.",
+      title: "Responsive Layouts",
+      desc: "Layouts designed to work across common phone, tablet, and desktop screen sizes.",
       icon: LayoutGrid,
     },
     {
       title: "Advanced SEO & Semantic Optimization",
-      desc: "Metatags, JSON-LD schemas, and fully customizable automated sitemaps baked in to dominate search engine results page metrics.",
+      desc: "Metadata, structured data, and sitemap options that support search-engine discovery.",
       icon: Search,
     },
     {
-      title: "Hardened Enterprise Cyber Security",
-      desc: "Strict adherence to CSRF protection boundaries, secure HTTP-only cookies, sanitization algorithms, and DDoS immunity protocols.",
+      title: "Security Considerations",
+      desc: "Relevant application security controls are considered during design and implementation.",
       icon: ShieldCheck,
     },
   ];
@@ -50,15 +50,15 @@ export default function WebDevelopmentDetailPage() {
   const useCases = [
     {
       title: "Corporate Landing Ecosystems",
-      desc: "Tailored specifically for businesses wanting to lock in maximum client lead capturing via elite aesthetic storytelling elements.",
+      desc: "Websites structured around clear information and business goals.",
     },
     {
       title: "High-Throughput SaaS Platforms",
-      desc: "Multi-tenant software subscription services embedded with advanced analytics dashboards and scalable reactive socket systems.",
+      desc: "Subscription products with dashboards and integrations planned around their requirements.",
     },
     {
       title: "E-Commerce Engines",
-      desc: "Custom inventory checkout configurations optimized for hundreds of thousands of concurrent client checkout operations.",
+      desc: "Commerce experiences with inventory and checkout requirements considered during planning.",
     },
   ];
 
@@ -81,22 +81,22 @@ export default function WebDevelopmentDetailPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <MDiv variants={staggerContainer} initial="hidden" animate="visible" className="lg:w-3/5">
               <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 mb-4 inline-block">
-                Premium Service Tier
+                Website Service
               </span>
               <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
-                High-Performance Custom <br />
+                Custom <br />
                 <span className="text-primary">Website Development</span>
               </h1>
               <p className="text-grey text-lg font-medium leading-relaxed max-w-xl">
-                We design and engineer bespoke web software that delivers superior conversion rates, speed metrics, and military-grade stability.
+                We design and build web software around your content, workflows, and project requirements.
               </p>
             </MDiv>
             <MDiv variants={scaleIn} initial="hidden" animate="visible" className="lg:w-2/5 w-full bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                 <Monitor className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Need a high-end web app?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's discuss how Next.js 15 and Tailwind CSS can scale your enterprise traffic seamlessly.</p>
+              <h3 className="text-xl font-bold mb-2">Need a web application?</h3>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss an approach suited to your website or application requirements.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Book a Technical Consultation
               </Link>

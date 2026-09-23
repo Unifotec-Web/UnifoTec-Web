@@ -67,7 +67,7 @@ export default function CloudHostingDetailPage() {
     { name: "Vercel", desc: "Optimized deployment platform for Next.js and frontend performance.", category: "Frontend Cloud" },
     { name: "Docker", desc: "Industry standard for application containerization and portability.", category: "Orchestration" },
     { name: "Terraform", desc: "Infrastructure as Code (IaC) for reproducible cloud environments.", category: "DevOps" },
-    { name: "Cloudflare", desc: "Elite CDN, DNS, and DDoS protection for global edge security.", category: "Security" },
+    { name: "Cloudflare", desc: "CDN, DNS, and DDoS-protection options for relevant infrastructure.", category: "Security" },
   ];
 
   return (
@@ -88,7 +88,7 @@ export default function CloudHostingDetailPage() {
                 <span className="text-primary">Managed Hosting Solutions</span>
               </h1>
               <p className="text-grey text-lg font-medium leading-relaxed max-w-xl">
-                We engineer bulletproof cloud architectures that ensure your application remains fast, secure, and always online.
+                We can plan cloud architecture around your application&apos;s requirements and operating needs.
               </p>
             </MDiv>
             <MDiv variants={scaleIn} initial="hidden" animate="visible" className="lg:w-2/5 w-full bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
@@ -96,7 +96,7 @@ export default function CloudHostingDetailPage() {
                 <Cloud className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold mb-2">Scale your infra?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's build a high-availability cloud setup that handles your most demanding traffic peaks.</p>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss cloud and hosting options for your expected traffic and operations.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Audit My Infrastructure
               </Link>
@@ -172,7 +172,7 @@ export default function CloudHostingDetailPage() {
             <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">The Stack</h2>
             <h3 className="text-3xl font-bold text-dark">Technologies We Use</h3>
             <p className="text-grey text-sm max-w-md mx-auto mt-2">
-              We leverage the most advanced cloud platforms to ensure maximum uptime and performance.
+              We consider suitable cloud platforms and operational practices for each project.
             </p>
           </div>
 

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { navigation } from "@/lib/public-content";
+import { isActiveNavigationPath } from "@/lib/navigation";
 
 const MotionNav = motion.nav;
 const MotionDiv = motion.div;
@@ -22,18 +24,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Industries", href: "/industries" },
-    { name: "Solutions", href: "/solutions" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const navLinks = navigation;
 
   return (
-    <MotionNav
+    <MotionNav aria-label="Primary navigation"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -50,18 +44,19 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="w-9 h-9 bg-primary flex items-center justify-center rounded-lg mr-2 shadow-lg shadow-primary/20 overflow-hidden"
             >
-              <img src="/logo.jpeg" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width="36" height="36" className="w-full h-full object-cover" />
             </MotionDiv>
             <span className="text-dark font-bold text-lg tracking-tight uppercase group-hover:text-primary transition-colors">UNIFOTEC-WEB</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = isActiveNavigationPath(pathname, link.href);
               return (
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`text-sm font-medium transition-colors relative group ${
                     isActive ? "text-primary" : "text-[#64748B] hover:text-primary"
                   }`}
@@ -89,7 +84,8 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#1E293B] hover:text-primary focus:outline-none transition-colors"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} aria-controls="mobile-navigation"
+              className="text-[#1E293B] hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -106,8 +102,10 @@ const Navbar = () => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div className="px-4 pt-4 pb-8 space-y-2">
-              {navLinks.map((link, idx) => (
+            <div id="mobile-navigation" className="px-4 pt-4 pb-8 space-y-2">
+              {navLinks.map((link, idx) => {
+                const isActive = isActiveNavigationPath(pathname, link.href);
+                return (
                 <MotionDiv
                   key={link.name}
                   initial={{ opacity: 0, x: 20 }}
@@ -116,13 +114,14 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className="block px-3 py-4 text-[#64748B] hover:text-primary font-bold text-lg border-b border-gray-50"
+                    aria-current={isActive ? "page" : undefined}
+                    className={`block px-3 py-4 font-bold text-lg border-b border-gray-50 ${isActive ? "text-primary" : "text-[#64748B] hover:text-primary"}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </Link>
                 </MotionDiv>
-              ))}
+              )})}
               <MotionDiv
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}

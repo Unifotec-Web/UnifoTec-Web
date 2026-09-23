@@ -9,8 +9,6 @@ import About from "@/components/About";
 import Team from "@/components/Team";
 import WorkProcess from "@/components/WorkProcess";
 import Sectors from "@/components/Sectors";
-import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -32,8 +30,6 @@ export default function Home() {
       <Team />
       <WorkProcess />
       <Sectors />
-      <Testimonials />
-      <Blog />
       <CTA />
       <Footer />
     </motion.main>

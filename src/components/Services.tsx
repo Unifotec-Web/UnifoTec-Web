@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Monitor,
   Smartphone,
@@ -13,24 +13,20 @@ import {
   ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import MotionSection from './motion/MotionSection';
 import { staggerItem } from './motion/variants';
 import RadialOrbitalTimeline, { TimelineItem } from "@/components/ui/radial-orbital-timeline";
-import { fetchServices } from '@/lib/api';
 
 const MDiv = motion.div;
-
-const iconMap: Record<string, any> = {
-  Monitor, Smartphone, Settings, ShoppingCart, CreditCard, Zap, Palette, Cloud
-};
 
 const defaultServices: TimelineItem[] = [
   {
     id: 1,
     title: "Web Development",
     date: "Core",
-    content: "Modern, responsive and secure websites for all devices using Next.js and React.",
+    content: "Modern, responsive websites for a range of devices using Next.js and React.",
     category: "Web",
     icon: Monitor,
     relatedIds: [3, 7],
@@ -63,7 +59,7 @@ const defaultServices: TimelineItem[] = [
     id: 4,
     title: "E-Commerce",
     date: "Retail",
-    content: "Online stores with secure payment integration and flawless checkout funnels.",
+    content: "Online stores with payment integrations and considered checkout journeys.",
     category: "Commerce",
     icon: ShoppingCart,
     relatedIds: [1, 5],
@@ -107,7 +103,7 @@ const defaultServices: TimelineItem[] = [
     id: 8,
     title: "Cloud & Hosting",
     date: "Infrastructure",
-    content: "Reliable hosting, cloud and server management with 99.9% uptime SLA.",
+    content: "Hosting, cloud, and server-management options discussed for your project needs.",
     category: "Cloud",
     icon: Cloud,
     relatedIds: [1, 3],
@@ -117,34 +113,18 @@ const defaultServices: TimelineItem[] = [
 ];
 
 const Services = () => {
-  const [services, setServices] = useState<TimelineItem[]>(defaultServices);
-
-  useEffect(() => {
-    fetchServices()
-      .then(data => {
-        if (data && data.length > 0) {
-          const mapped = data.map((s: any) => ({
-            ...s,
-            icon: iconMap[s.icon] || Monitor,
-            relatedIds: s.relatedIds || []
-          }));
-          setServices(mapped);
-        }
-      })
-      .catch(err => console.warn("Backend services unreachable, using local fallback", err));
-  }, []);
-
   return (
-    <MotionSection id="services" className="py-20 bg-white">
+    <MotionSection id="services" className="py-12 sm:py-16 lg:py-20 surface-base border-b border-blue-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex justify-between items-end gap-6 mb-12">
           <MDiv variants={staggerItem}>
             <h2 className="text-primary font-bold text-xs uppercase tracking-widest mb-3">OUR SERVICES</h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-[#0F172A]">
               Everything You Need for Your Digital Growth
             </h3>
           </MDiv>
-          <MDiv variants={staggerItem} className="hidden md:flex">
+          <MDiv variants={staggerItem} className="hidden md:flex items-center gap-5">
+            <Image src="/images/illustrations/web-commerce.svg" alt="Illustration of a website and e-commerce checkout." width={96} height={72} loading="lazy" className="h-[72px] w-24 rounded-xl border border-blue-100" />
             <Link href="/services" className="text-primary font-bold text-sm flex items-center hover:underline transition-all group">
               View All Services <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -152,7 +132,7 @@ const Services = () => {
         </div>
 
         <MDiv variants={staggerItem} className="w-full">
-           <RadialOrbitalTimeline timelineData={services} />
+           <RadialOrbitalTimeline timelineData={defaultServices} />
         </MDiv>
       </div>
     </MotionSection>

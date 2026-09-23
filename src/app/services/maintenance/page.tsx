@@ -31,7 +31,7 @@ export default function MaintenanceDetailPage() {
       icon: ShieldAlert,
     },
     {
-      title: "24/7 Uptime Monitoring",
+      title: "Monitoring Options",
       desc: "Continuous health checks and instant alerting systems to ensure your application is always available to users.",
       icon: Clock,
     },
@@ -42,7 +42,7 @@ export default function MaintenanceDetailPage() {
     },
     {
       title: "Managed Backups & Recovery",
-      desc: "Automated daily off-site backups with verified restoration procedures to guarantee zero data loss.",
+      desc: "Backup and restoration approaches can be planned around the project&apos;s data and operating needs.",
       icon: HardDrive,
     },
   ];
@@ -50,7 +50,7 @@ export default function MaintenanceDetailPage() {
   const useCases = [
     {
       title: "SaaS Platform Continuity",
-      desc: "Comprehensive support for multi-tenant applications requiring 99.9% uptime SLAs and rapid bug resolution.",
+      desc: "Maintenance options for multi-tenant applications can be defined in an agreed support scope.",
     },
     {
       title: "Corporate Portal Security",
@@ -84,7 +84,7 @@ export default function MaintenanceDetailPage() {
                 Continuity Tier
               </span>
               <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
-                Premium Application <br />
+                Application <br />
                 <span className="text-primary">Maintenance & Support</span>
               </h1>
               <p className="text-grey text-lg font-medium leading-relaxed max-w-xl">
@@ -95,8 +95,8 @@ export default function MaintenanceDetailPage() {
               <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                 <LifeBuoy className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Secure your uptime?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's discuss a custom maintenance plan that keeps your platform running flawlessly 24/7.</p>
+              <h3 className="text-xl font-bold mb-2">Plan maintenance?</h3>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss a maintenance plan suited to your platform and team.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Get Support Roadmap
               </Link>
@@ -157,7 +157,7 @@ export default function MaintenanceDetailPage() {
                 </div>
                 <div className="flex items-center text-xs font-bold text-accent uppercase tracking-wider">
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  <span>24/7 Managed</span>
+                  <span>Managed support</span>
                 </div>
               </MDiv>
             ))}
@@ -172,7 +172,7 @@ export default function MaintenanceDetailPage() {
             <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">The Stack</h2>
             <h3 className="text-3xl font-bold text-dark">Technologies We Use</h3>
             <p className="text-grey text-sm max-w-md mx-auto mt-2">
-              We leverage top-tier observability tools to ensure your platform never skips a beat.
+              We can discuss observability tools and maintenance practices for your platform.
             </p>
           </div>
 

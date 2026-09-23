@@ -27,22 +27,22 @@ export default function MobileAppDetailPage() {
   const keyFeatures = [
     {
       title: "Native & Cross-Platform Expertise",
-      desc: "High-performance applications built with Flutter, React Native, and Swift for seamless iOS and Android experiences.",
+      desc: "Applications built with Flutter, React Native, or native tools for iOS and Android requirements.",
       icon: Smartphone,
     },
     {
       title: "Offline-First Capability",
-      desc: "Advanced local data caching ensuring your users stay productive even in zero-connectivity environments.",
+      desc: "Offline behaviour and local data handling considered where suitable for the product.",
       icon: Globe,
     },
     {
       title: "Intelligent Push Notifications",
-      desc: "Engagement-driven notification systems with personalized triggers to maximize user retention and LTV.",
+      desc: "Notification flows designed around agreed product and user needs.",
       icon: Bell,
     },
     {
       title: "Biometric & Secure Auth",
-      desc: "Military-grade security including FaceID, TouchID, and multi-factor authentication for sensitive data protection.",
+      desc: "Authentication options such as biometric or multi-factor sign-in assessed for the product scope.",
       icon: ShieldCheck,
     },
   ];
@@ -50,7 +50,7 @@ export default function MobileAppDetailPage() {
   const useCases = [
     {
       title: "FinTech & Wallet Apps",
-      desc: "Secure mobile banking and digital wallet solutions with real-time transaction processing and high-end encryption.",
+      desc: "Mobile banking and wallet interfaces planned around relevant integration and security requirements.",
     },
     {
       title: "Health & Fitness Trackers",
@@ -81,22 +81,22 @@ export default function MobileAppDetailPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <MDiv variants={staggerContainer} initial="hidden" animate="visible" className="lg:w-3/5">
               <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 mb-4 inline-block">
-                Elite Mobile Tier
+                Mobile Service
               </span>
               <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
-                Premium Native & <br />
+                Native & <br />
                 <span className="text-primary">Mobile App Development</span>
               </h1>
               <p className="text-grey text-lg font-medium leading-relaxed max-w-xl">
-                We engineer sleek, high-performance mobile experiences that place your business directly in your customers' pockets.
+                We design and build mobile experiences around your product goals and user needs.
               </p>
             </MDiv>
             <MDiv variants={scaleIn} initial="hidden" animate="visible" className="lg:w-2/5 w-full bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                 <Smartphone className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Build a mobile empire?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's discuss how cross-platform technologies can scale your mobile presence instantly.</p>
+              <h3 className="text-xl font-bold mb-2">Build a mobile product?</h3>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss mobile technology options for your product requirements.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Request Mobile Roadmap
               </Link>

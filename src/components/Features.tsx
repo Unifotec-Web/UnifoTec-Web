@@ -3,15 +3,15 @@ import { Monitor, Smartphone, Settings, Shield, Layout } from 'lucide-react';
 
 const Features = () => {
   const items = [
-    { icon: Monitor, title: "Web Development", sub: "Responsive & Secure" },
+    { icon: Monitor, title: "Web Development", sub: "Responsive Design" },
     { icon: Smartphone, title: "Mobile Apps", sub: "Android & iOS" },
-    { icon: Settings, title: "Software Solutions", sub: "Custom & Scalable" },
+    { icon: Settings, title: "Software Solutions", sub: "Custom Workflows" },
     { icon: Shield, title: "IT Services", sub: "Support & Maintenance" },
     { icon: Layout, title: "Digital Platforms", sub: "For Your Business" },
   ];
 
   return (
-    <div className="bg-white py-10 border-b border-gray-100">
+    <div className="surface-soft py-10 border-y border-blue-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between items-center gap-6">
           {items.map((item, idx) => (

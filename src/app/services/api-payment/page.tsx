@@ -88,7 +88,7 @@ export default function ApiPaymentDetailPage() {
                 <span className="text-primary">Payment Integration</span>
               </h1>
               <p className="text-grey text-lg font-medium leading-relaxed max-w-xl">
-                We bridge the gap between your platform and global financial networks with flawless, secure API architectures.
+                We help connect your platform with relevant financial and service-provider APIs.
               </p>
             </MDiv>
             <MDiv variants={scaleIn} initial="hidden" animate="visible" className="lg:w-2/5 w-full bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
@@ -96,7 +96,7 @@ export default function ApiPaymentDetailPage() {
                 <CreditCard className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold mb-2">Automate your payouts?</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Let's build a secure payment pipeline that handles thousands of transactions per second.</p>
+              <p className="text-slate-400 text-sm font-medium mb-6">Let&apos;s discuss payment and API integration requirements for your platform.</p>
               <Link href="/contact" className="w-full bg-primary hover:bg-primary-dark text-white text-center block font-bold text-sm py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
                 Integrate My Gateway
               </Link>

@@ -16,6 +16,7 @@ import {
   Clock,
 } from "lucide-react";
 import CustomSelect from "@/components/CustomSelect";
+import { company } from "@/lib/public-content";
 
 const MDiv = motion.div;
 
@@ -55,12 +56,12 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Header */}
-      <section className="bg-white py-24 border-b border-gray-100">
+      <section className="bg-[#f5f3ed] py-14 sm:py-20 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeUp>
             <Image src="/images/illustrations/automation-cloud.svg" alt="Illustration of connected cloud services and automation." width={180} height={135} loading="lazy" className="mx-auto mb-6 h-auto w-36" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark mb-6 tracking-tight text-balance">
-              Let's Engineer Your <br /><span className="text-primary">Next Digital Asset</span>
+              Let&apos;s talk about your <span className="text-[#285749]">next digital idea</span>
             </h1>
             <p className="text-grey text-lg max-w-2xl mx-auto font-medium">
               Have a complex technical challenge? Tell us about it and we can discuss practical software options.
@@ -69,14 +70,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <MotionSection className="py-20 bg-light">
+      <MotionSection className="py-14 sm:py-20 bg-[#edf1eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
             {/* Contact Info */}
             <MDiv variants={staggerContainer} className="space-y-8">
               <MDiv variants={staggerItem}>
-                <h2 className="text-2xl font-bold text-dark mb-6">Global Headquarters</h2>
+                <h2 className="text-2xl font-bold text-dark mb-6">Contact details</h2>
                 <div className="space-y-6">
                   <div className="flex gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                     <div className="w-12 h-12 bg-primary/5 text-primary rounded-xl flex items-center justify-center shrink-0">
@@ -84,7 +85,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-dark text-lg mb-1">Accra, Ghana</h4>
-                      <p className="text-grey text-sm font-medium">East Legon, Digital Address GA-123-4567</p>
+                      <p className="text-grey text-sm font-medium">{company.address.join(", ")}</p>
                     </div>
                   </div>
 
@@ -105,7 +106,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-bold text-dark text-lg mb-1">Direct Line</h4>
                       <p className="text-grey text-sm font-medium">+233 24 499 3720</p>
-                      <p className="text-grey text-sm font-medium">Mon-Fri, 8AM - 6PM GMT</p>
+
                     </div>
                   </div>
                 </div>
@@ -136,7 +137,7 @@ export default function ContactPage() {
                       required
                       value={formData.fullName}
                       onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                      placeholder="John Doe"
+                      placeholder="Your name"
                       className="w-full bg-light border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-all font-medium"
                     />
                   </div>
@@ -147,7 +148,7 @@ export default function ContactPage() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="john@company.com"
+                      placeholder="you@example.com"
                       className="w-full bg-light border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-all font-medium"
                     />
                   </div>

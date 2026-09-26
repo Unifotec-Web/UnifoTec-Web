@@ -37,3 +37,7 @@ Launch copy avoids unsupported results, guarantees, fixed delivery timelines, an
 AI-assisted copy may be used as a human-reviewed launch draft for company positioning, services, values, process, and general capability descriptions. Client identities, delivered projects, testimonials, team identities, outcomes, metrics, partnerships, and certifications require evidence and approval. Until then, portfolio material is labelled as a concept showcase and team profiles remain role-only.
 
 The public contact address is `info@unifotecweb.com`. Draft payment and refund language does not activate checkout or replace project-specific written terms; it must be aligned with the chosen payment provider and business process before payment functionality launches.
+
+## 2026-09-26 — Public experience refresh
+
+The static public site uses a warm neutral and deep green editorial treatment with blue retained as a small supporting accent in existing illustrations and legacy sections. Homepage service cards link to the existing static routes; project previews stay explicitly labelled as concepts. Photographs are local optimized WebP assets with source and licence records in `docs/ASSET_ATTRIBUTION.md`. Motion is short, one-time, and reduced-motion aware. No new runtime endpoint, dependency, or payment flow was introduced.

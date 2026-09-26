@@ -8,7 +8,7 @@ const quickLinks = navigation.map(({ name, href }) => [name, href] as const);
 const serviceLinks = services.slice(0, 4).map(([name, , href]) => [name, href] as const);
 
 export default function Footer() {
-  return <footer className="border-t border-blue-400/15 bg-[#0F172A] [background-image:radial-gradient(circle_at_90%_8%,rgb(0_95_255_/_0.28),transparent_23rem)] py-10 text-white sm:py-12">
+  return <footer className="border-t border-blue-400/15 bg-[#172d27] [background-image:radial-gradient(circle_at_90%_8%,rgb(112_160_126_/_0.2),transparent_23rem)] py-10 text-white sm:py-12">
     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:px-8">
       <div><Link href="/" className="text-lg font-bold uppercase text-white">{company.name}</Link><p className="mt-3 max-w-xs text-sm italic text-blue-100">{company.tagline}</p></div>
       <FooterList title="Quick Links" items={quickLinks} grid />

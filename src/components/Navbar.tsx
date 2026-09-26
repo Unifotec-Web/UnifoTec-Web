@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -44,7 +45,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="w-9 h-9 bg-primary flex items-center justify-center rounded-lg mr-2 shadow-lg shadow-primary/20 overflow-hidden"
             >
-              <img src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width="36" height="36" className="w-full h-full object-cover" />
+              <Image src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width={36} height={36} className="h-full w-full object-cover" />
             </MotionDiv>
             <span className="text-dark font-bold text-lg tracking-tight uppercase group-hover:text-primary transition-colors">UNIFOTEC-WEB</span>
           </Link>
@@ -73,10 +74,10 @@ const Navbar = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Link
-                href="/contact"
-                className="bg-primary text-white px-6 py-2.5 rounded-md font-bold text-sm flex items-center hover:bg-primary-dark transition-all shadow-lg shadow-primary/20"
+                href="/start-project"
+                className="bg-[#285749] text-white px-6 py-2.5 rounded-md font-bold text-sm flex items-center hover:bg-[#1d4438] transition-all shadow-lg shadow-primary/20"
               >
-                Get Started <ArrowRight className="ml-2 w-4 h-4" />
+                Start a Project <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </MotionDiv>
           </div>
@@ -128,11 +129,11 @@ const Navbar = () => {
                 transition={{ delay: navLinks.length * 0.05 }}
               >
                 <Link
-                  href="/contact"
-                  className="block w-full text-center mt-6 px-3 py-4 bg-primary text-white rounded-lg font-bold text-lg shadow-lg shadow-primary/20"
+                  href="/start-project"
+                  className="block w-full text-center mt-6 px-3 py-4 bg-[#285749] text-white rounded-lg font-bold text-lg shadow-lg shadow-primary/20"
                   onClick={() => setIsOpen(false)}
                 >
-                  Get Started
+                  Start a Project
                 </Link>
               </MotionDiv>
             </div>

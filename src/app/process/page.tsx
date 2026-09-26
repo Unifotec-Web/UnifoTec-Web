@@ -25,31 +25,31 @@ export default function ProcessPage() {
   const steps = [
     {
       title: "Discovery & Strategy",
-      desc: "Deep-dive technical audits and business requirement gathering to define a clear project roadmap.",
+      desc: "We discuss the business, audience, goals, content, budget and technical requirements before defining the project roadmap.",
       icon: Search,
       tags: ["Audit", "Planning", "Backlog"],
     },
     {
       title: "UI/UX & Prototyping",
-      desc: "Interactive high-fidelity prototypes and design systems focused on modern aesthetics and usability.",
+      desc: "We shape the content structure, user journeys and visual direction, then refine the design through focused feedback.",
       icon: Layout,
       tags: ["Figma", "Prototypes", "UX Research"],
     },
     {
       title: "Agile Development",
-      desc: "Clean, documented code written in iterative sprints with continuous stakeholder feedback loops.",
+      desc: "Our developers implement the approved experience in reviewable stages and share progress with the project stakeholders.",
       icon: Code2,
       tags: ["Next.js", "Sprint Cycles", "CI/CD"],
     },
     {
       title: "Rigorous QA Testing",
-      desc: "Comprehensive automated and manual testing ensuring zero-bug production environments.",
+      desc: "We test the agreed functionality, responsiveness, accessibility and launch requirements, then address the findings before approval.",
       icon: TestTube2,
       tags: ["Unit Tests", "E2E", "Stress Testing"],
     },
     {
       title: "Deployment & Launch",
-      desc: "Seamless rollout to production cloud environments with zero downtime migration strategies.",
+      desc: "We prepare the approved product for its agreed hosting environment and complete the launch checklist with the client.",
       icon: Rocket,
       tags: ["Cloud Rollout", "SSL", "DNS Config"],
     },
@@ -77,7 +77,7 @@ export default function ProcessPage() {
               A Transparent, Agile <br />Engineering Workflow
             </h1>
             <p className="text-grey text-lg max-w-2xl mx-auto font-medium">
-              We leverage modern Agile methodologies to ensure your project stays on track, within budget, and meets the highest technical standards.
+              A clear delivery process keeps responsibilities, decisions and approval points visible from the first conversation to launch.
             </p>
           </FadeUp>
         </div>
@@ -141,7 +141,7 @@ export default function ProcessPage() {
           <FadeUp>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6">Ready to start the journey?</h2>
             <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto font-medium">
-              Book a technical discovery session today and let's turn your vision into a production-ready digital asset.
+              Tell us what you want to achieve and we will help you define the right starting point, scope and delivery approach.
             </p>
             <Link href="/contact" className="bg-white text-primary px-8 py-3.5 rounded-xl font-bold transition-all shadow-xl hover:bg-slate-50 inline-block">
               Begin Technical Discovery

@@ -27,7 +27,7 @@ export default function CloudHostingDetailPage() {
   const keyFeatures = [
     {
       title: "Horizontal Auto-Scaling",
-      desc: "Infrastructure that dynamically expands and contracts based on real-time traffic demand to ensure zero downtime.",
+      desc: "Infrastructure that can expand or contract around changing traffic and availability requirements.",
       icon: Cpu,
     },
     {

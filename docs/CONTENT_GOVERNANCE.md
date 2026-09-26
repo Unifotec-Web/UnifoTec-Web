@@ -19,7 +19,11 @@ Until individual identity approval is recorded, the public team presentation is 
 
 ## Current status
 
-Sample posts, fictional testimonials, and unapproved individual team profiles are not published. Verified case studies and individual profiles remain pending approval.
+The company story, mission, vision, values, delivery process, differentiators, and service descriptions are AI-assisted launch drafts based on the approved company direction. They require final business-owner review before production deployment.
+
+Sample posts, fictional testimonials, invented metrics, and unapproved individual team profiles are not published. The Projects page may show clearly labelled concept showcases that demonstrate capabilities, but they must never be presented as client work or evidence of outcomes. Verified case studies, testimonials, metrics, and individual profiles remain pending approval.
+
+Policy copy is an operational starting point and must be reviewed against the company's actual quotation, payment, cancellation, and refund practices before online payments are enabled.
 
 ## Review record
 

@@ -19,13 +19,13 @@ const MDiv = motion.div;
 
 const WorkProcess = () => {
   const steps = [
-    { icon: MessageSquare, title: "Consultation", sub: "Understand your needs", num: "01" },
+    { icon: MessageSquare, title: "Discover", sub: "Understand the need", num: "01" },
     { icon: MapIcon, title: "Planning", sub: "Define scope & plan", num: "02" },
     { icon: Palette, title: "UI/UX Design", sub: "Create the interface", num: "03" },
     { icon: Code, title: "Development", sub: "Build the solution", num: "04" },
     { icon: CheckCircle2, title: "Testing", sub: "Ensure quality", num: "05" },
     { icon: Rocket, title: "Deployment", sub: "Go live", num: "06" },
-    { icon: TrendingUp, title: "Training & succeed", sub: "Help you succeed", num: "07" },
+    { icon: TrendingUp, title: "Support", sub: "Plan what comes next", num: "07" },
   ];
 
   return (

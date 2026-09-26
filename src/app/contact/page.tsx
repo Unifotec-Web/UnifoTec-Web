@@ -46,7 +46,7 @@ export default function ContactPage() {
       "",
       formData.message,
     ].join("\n");
-    window.location.href = `mailto:hello@unifotecweb.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@unifotecweb.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setEmailAppOpened(true);
   };
 
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-dark text-lg mb-1">Electronic Mail</h4>
-                      <p className="text-grey text-sm font-medium">hello@unifotecweb.com</p>
+                      <p className="text-grey text-sm font-medium">info@unifotecweb.com</p>
                     </div>
                   </div>
 

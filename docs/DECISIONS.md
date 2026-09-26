@@ -31,3 +31,9 @@ Launch copy avoids unsupported results, guarantees, fixed delivery timelines, an
 ## 2026-09-22 — External-origin inventory
 
 `https://unifotecweb.com` is the approved first-party origin. The W3C SVG namespace is an XML identifier, not a network dependency. The copied template promotional URL and its unused demonstration components were removed.
+
+## 2026-09-26 — AI-assisted content with explicit truth boundaries
+
+AI-assisted copy may be used as a human-reviewed launch draft for company positioning, services, values, process, and general capability descriptions. Client identities, delivered projects, testimonials, team identities, outcomes, metrics, partnerships, and certifications require evidence and approval. Until then, portfolio material is labelled as a concept showcase and team profiles remain role-only.
+
+The public contact address is `info@unifotecweb.com`. Draft payment and refund language does not activate checkout or replace project-specific written terms; it must be aligned with the chosen payment provider and business process before payment functionality launches.

@@ -1,147 +1,82 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { navigation } from "@/lib/public-content";
 import { isActiveNavigationPath } from "@/lib/navigation";
 
-const MotionNav = motion.nav;
-const MotionDiv = motion.div;
-
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  const closeMenu = useCallback((restoreFocus = false) => {
+    setIsOpen(false);
+    if (restoreFocus) window.requestAnimationFrame(() => triggerRef.current?.focus());
   }, []);
 
-  const navLinks = navigation;
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => { setIsOpen(false); }, [pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); closeMenu(true); }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, closeMenu]);
 
   return (
-    <MotionNav aria-label="Primary navigation"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm py-3'
-          : 'bg-white/50 backdrop-blur-sm py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-12">
-          <Link href="/" className="flex-shrink-0 flex items-center group">
-            <MotionDiv
-              whileHover={{ scale: 1.05 }}
-              className="w-9 h-9 bg-primary flex items-center justify-center rounded-lg mr-2 shadow-lg shadow-primary/20 overflow-hidden"
-            >
-              <Image src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width={36} height={36} className="h-full w-full object-cover" />
-            </MotionDiv>
-            <span className="text-dark font-bold text-lg tracking-tight uppercase group-hover:text-primary transition-colors">UNIFOTEC-WEB</span>
+    <nav aria-label="Primary navigation" className="fixed inset-x-3 top-3 z-50 sm:inset-x-4 lg:top-4">
+      <div className={`relative mx-auto max-w-7xl rounded-[1.2rem] border backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-300 ${isScrolled ? "border-slate-300/80 bg-[#fffefa]/95 shadow-[0_12px_32px_rgba(15,23,42,0.12)]" : "border-white/80 bg-[#fffefa]/85 shadow-[0_2px_14px_rgba(15,23,42,0.04)]"}`}>
+        <div className={`flex items-center justify-between gap-3 px-3 transition-[height] duration-300 sm:px-4 lg:px-5 ${isScrolled ? "h-[54px]" : "h-[60px]"}`}>
+          <Link href="/" onClick={() => closeMenu()} className="group flex min-w-0 shrink-0 items-center gap-2 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749]">
+            <Image src="/logo.jpeg" alt="UNIFOTEC-WEB logo" width={34} height={34} className="h-8 w-8 rounded-lg object-cover sm:h-[34px] sm:w-[34px]" />
+            <span className="truncate text-sm font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-[#285749] sm:text-[15px]">UNIFOTEC-WEB</span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => {
-              const isActive = isActiveNavigationPath(pathname, link.href);
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors relative group ${
-                    isActive ? "text-primary" : "text-[#64748B] hover:text-primary"
-                  }`}
-                >
-                  {link.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}></span>
-                </Link>
-              );
+          <div className="hidden items-center gap-1 lg:flex">
+            {navigation.map((link) => {
+              const active = isActiveNavigationPath(pathname, link.href);
+              return <Link key={link.href} href={link.href} aria-current={active ? "page" : undefined} className={`inline-flex min-h-9 items-center gap-1.5 rounded-full px-2.5 text-[13px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749] ${active ? "bg-[#e5efe8] font-bold text-[#214b3d] ring-1 ring-[#cbded0]" : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"}`}>{active && <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#285749]" />}{link.name}</Link>;
             })}
-            <MotionDiv
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link
-                href="/start-project"
-                className="bg-[#285749] text-white px-6 py-2.5 rounded-md font-bold text-sm flex items-center hover:bg-[#1d4438] transition-all shadow-lg shadow-primary/20"
-              >
-                Start a Project <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </MotionDiv>
           </div>
 
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} aria-controls="mobile-navigation"
-              className="text-[#1E293B] hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          <Link href="/start-project" className="group hidden min-h-9 shrink-0 items-center gap-1.5 rounded-full bg-[#285749] px-4 text-[13px] font-bold text-white transition-colors hover:bg-[#1d4438] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749] lg:inline-flex">Start a Project <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:transform-none" /></Link>
+
+          <button ref={triggerRef} type="button" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={() => isOpen ? closeMenu(true) : setIsOpen(true)} className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-slate-900 transition-colors hover:bg-[#e5efe8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749] lg:hidden">{isOpen ? <X aria-hidden="true" className="h-5 w-5" /> : <Menu aria-hidden="true" className="h-5 w-5" />}</button>
         </div>
-      </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <MotionDiv
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
-          >
-            <div id="mobile-navigation" className="px-4 pt-4 pb-8 space-y-2">
-              {navLinks.map((link, idx) => {
-                const isActive = isActiveNavigationPath(pathname, link.href);
-                return (
-                <MotionDiv
-                  key={link.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                >
-                  <Link
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`block px-3 py-4 font-bold text-lg border-b border-gray-50 ${isActive ? "text-primary" : "text-[#64748B] hover:text-primary"}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                </MotionDiv>
-              )})}
-              <MotionDiv
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-              >
-                <Link
-                  href="/start-project"
-                  className="block w-full text-center mt-6 px-3 py-4 bg-[#285749] text-white rounded-lg font-bold text-lg shadow-lg shadow-primary/20"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Start a Project
-                </Link>
-              </MotionDiv>
+        <AnimatePresence>
+          {isOpen && <motion.div id="mobile-navigation" key="mobile-navigation" initial={reduceMotion ? false : { opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={reduceMotion ? undefined : { opacity: 0, y: -8 }} transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }} className="absolute left-0 right-0 top-[calc(100%+0.5rem)] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-[1.2rem] border border-slate-200 bg-[#fffefa] p-2 shadow-[0_18px_40px_rgba(15,23,42,0.16)] lg:hidden">
+            <div className="grid gap-1 sm:grid-cols-2">
+              {navigation.map((link) => {
+                const active = isActiveNavigationPath(pathname, link.href);
+                return <Link key={link.href} href={link.href} aria-current={active ? "page" : undefined} onClick={() => closeMenu(true)} className={`flex min-h-12 items-center gap-2 rounded-xl px-4 text-base font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749] ${active ? "bg-[#e5efe8] text-[#214b3d]" : "text-slate-700 hover:bg-slate-100"}`}>{active && <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#285749]" />}{link.name}</Link>;
+              })}
             </div>
-          </MotionDiv>
-        )}
-      </AnimatePresence>
-    </MotionNav>
+            <Link href="/start-project" onClick={() => closeMenu(true)} className="mt-2 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#285749] px-4 text-base font-bold text-white hover:bg-[#1d4438] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749]">Start a Project <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
+          </motion.div>}
+        </AnimatePresence>
+      </div>
+    </nav>
   );
-};
-
-export default Navbar;
+}

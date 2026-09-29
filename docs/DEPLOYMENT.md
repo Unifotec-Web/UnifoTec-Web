@@ -34,3 +34,7 @@ No CMS/admin service is deployed with the public site. Any future backend requir
 # Launch checklist
 
 Before upload, record the artifact commit/SHA, take a cPanel backup, and upload the contents of `out/` including `.htaccess`. After upload, verify SSL, the canonical hostname, a 404 response, the configured contact method (email draft or public API), responsive layouts, `sitemap.xml`, `robots.txt`, and cache clearing. Keep the prior artifact available for rollback.
+
+## Local n8n webhook verification
+
+`N8N_CONTACT_WEBHOOK_URL` and `N8N_TEST_EMAIL` are local-only variables for `node scripts/test-contact-webhook.mjs`. The first holds the private production webhook URL; the second must be a controlled test inbox. They are not build or deployment variables and must never be placed in browser-visible `NEXT_PUBLIC_` configuration. See [the webhook test guide](webhook-test/README.md) before running the command, which sends one real submission.

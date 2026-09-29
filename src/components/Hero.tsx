@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { company } from "@/lib/public-content";
+import HeroPhotoCarousel from "@/components/HeroPhotoCarousel";
 
 export default function Hero() {
   return <section id="home" className="relative overflow-hidden bg-[#f5f3ed] pt-24 sm:pt-32">
@@ -13,10 +13,7 @@ export default function Hero() {
         <div className="mt-9 flex flex-wrap gap-3"><Link href="/start-project" className="button-dark">Start a project <ArrowUpRight className="h-4 w-4" /></Link><Link href="/services" className="button-light">Explore services</Link></div>
         <a href="#services" className="mt-12 hidden items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-[#285749] sm:inline-flex">Explore what we do <ArrowDown className="h-4 w-4" /></a>
       </div>
-      <div className="relative mx-auto w-full max-w-xl pb-6 pr-5 sm:pb-8 sm:pr-8 lg:mx-0">
-        <div className="relative aspect-[5/4] overflow-hidden rounded-[1.75rem] bg-slate-200 shadow-2xl shadow-slate-900/15 sm:aspect-[4/4]"><Image src="/images/photos/hero-collaboration.webp" alt="Technology professionals collaborating around a table" fill priority sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover" /></div>
-        <div className="absolute bottom-0 right-0 max-w-[12rem] rounded-2xl border border-white/30 bg-[#285749] p-4 text-sm font-semibold leading-snug text-white shadow-xl sm:max-w-[15rem] sm:p-6">Ideas become clearer when people build together.</div>
-      </div>
+      <HeroPhotoCarousel />
     </div>
     <div className="border-t border-slate-300/70 bg-white/60"><div className="section-shell flex flex-wrap items-center justify-between gap-x-8 gap-y-2 py-4 text-xs font-bold uppercase tracking-widest text-slate-600"><span>{company.primaryMarket} · digital solutions</span><span>Websites / Apps / Software / Support</span></div></div>
   </section>;

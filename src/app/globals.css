@@ -92,3 +92,23 @@ body {
   scrollbar-width: thin;
   scrollbar-color: rgba(100, 116, 139, 0.2) transparent;
 }
+
+html { scroll-behavior: smooth; }
+@layer components {
+  .display-title { @apply font-black leading-[1.04] tracking-[-0.045em] text-slate-950; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#285749]; }
+  .section-shell { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section-heading { @apply text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl; }
+  .button-dark { @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#285749]; }
+  .button-light { @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:border-[#285749] hover:text-[#285749]; }
+  .text-link { @apply inline-flex items-center gap-2 text-sm font-bold text-[#285749] underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current; }
+  .service-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .service-card:hover, .service-card:focus-visible { transform: translateY(-4px); border-color: #a4bdaf; box-shadow: 0 18px 36px rgb(15 23 42 / .09); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .service-card:hover, .service-card:focus-visible { transform: none; }
+}
+
+/* Shared dark section treatment for legacy public routes. */
+.surface-accent { background-color: #172d27; background-image: radial-gradient(circle at 85% 10%, rgb(80 138 101 / .55), transparent 34rem), linear-gradient(135deg, #172d27, #285749); }

@@ -1,78 +1,39 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Check } from "lucide-react";
 
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import MotionSection from './motion/MotionSection';
-import { staggerItem } from './motion/variants';
+const processNotes = [
+  "Clear project scope",
+  "Collaborative delivery",
+  "Support after launch",
+] as const;
 
-const MDiv = motion.div;
-const MButton = motion.button;
-const MH2 = motion.h2;
-const MP = motion.p;
-
-const CTA = () => {
+export default function CTA() {
   return (
-    <MotionSection id="contact" className="py-12 sm:py-16 lg:py-20 surface-soft border-t border-blue-100/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <MDiv
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="surface-accent rounded-[2rem] p-12 md:p-16 relative overflow-hidden shadow-2xl shadow-primary/20"
-        >
-          {/* Background pattern */}
-          <MDiv
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, 0]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"
-          ></MDiv>
-          <MDiv
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, -5, 0]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"
-          ></MDiv>
-
-          <div className="max-w-3xl relative z-10">
-            <MH2
-              variants={staggerItem}
-              className="text-white font-extrabold text-3xl md:text-5xl mb-6"
-            >
-              Let's Build Your Solution
-            </MH2>
-            <MP
-              variants={staggerItem}
-              className="text-blue-50 text-lg leading-relaxed mb-10 opacity-90"
-            >
-              Have a project in mind? Tell us what you want to build, and our team will help you define the technology, features, development requirements and implementation process.
-            </MP>
-            <Link href="/contact">
-              <MButton
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all flex items-center group shadow-xl"
-              >
-                Contact Us <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </MButton>
-            </Link>
+    <section aria-labelledby="final-cta-title" className="bg-[#f5f3ed] pt-10 sm:pt-12">
+      <div className="section-shell">
+        <div className="relative grid overflow-hidden rounded-t-[1.75rem] border border-b-0 border-[#285749]/20 bg-[#183a35] text-white shadow-[0_18px_50px_-30px_rgba(16,32,42,0.45)] lg:grid-cols-[1.08fr_0.92fr]">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(60,137,106,0.45),transparent_52%),linear-gradient(125deg,#183a35_0%,#1b413c_58%,#142d39_100%)]" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.1] [background-image:linear-gradient(rgba(255,255,255,.4)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.4)_1px,transparent_1px)] [background-size:36px_36px]" />
+          <div className="relative z-10 px-6 pb-7 pt-8 sm:px-10 sm:py-10 lg:px-12 lg:py-11">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#c7e4d6]">Let&apos;s begin</p>
+            <h2 id="final-cta-title" className="max-w-xl text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl">Have an idea worth building?</h2>
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-[#e3eee9] sm:text-base">Tell us what you want to achieve. We can discuss a practical starting point, scope, and next steps.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/start-project" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#183a35] shadow-sm transition-colors hover:bg-[#e7f0e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Start a Project <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
+              <Link href="/services" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/45 bg-white/5 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explore Services <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
+            </div>
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/20 pt-4 text-xs font-medium text-[#d8eae2]" aria-label="Our working approach">
+              {processNotes.map((note) => <li key={note} className="inline-flex items-center gap-1.5"><Check aria-hidden="true" className="h-3.5 w-3.5 text-[#b6dbbe]" />{note}</li>)}
+            </ul>
           </div>
-
-          {/* Laptop/Device hint in design */}
-          <div className="absolute bottom-0 right-0 w-[40%] h-[80%] hidden lg:block overflow-hidden rounded-tl-3xl opacity-20">
-             <div className="w-full h-full bg-[#0F172A] border-l-8 border-t-8 border-white/20"></div>
+          <div className="relative h-48 min-h-0 overflow-hidden border-t border-white/15 sm:h-64 lg:h-full lg:border-l lg:border-t-0">
+            <Image src="/images/photos/about-workshop.webp" alt="Professionals discussing ideas together around a table" fill sizes="(max-width: 1023px) 100vw, 42vw" className="object-cover object-center" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#142d39]/35 via-transparent to-transparent" />
+            <div aria-hidden="true" className="absolute bottom-4 right-4 hidden h-16 w-16 rounded-2xl border border-white/40 bg-white/15 backdrop-blur-sm sm:block" />
           </div>
-        </MDiv>
+        </div>
       </div>
-    </MotionSection>
+    </section>
   );
-};
-
-export default CTA;
+}

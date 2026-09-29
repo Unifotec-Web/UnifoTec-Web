@@ -7,6 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import MotionSection from './motion/MotionSection';
 import { staggerItem, scaleIn } from './motion/variants';
+import { companyProfile } from '@/lib/public-content';
 
 const MDiv = motion.div;
 const MButton = motion.button;
@@ -18,9 +19,9 @@ const About = () => {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
           <MDiv variants={staggerItem} className="lg:w-1/2">
             <h2 className="text-primary font-bold text-3xl mb-4">About Us</h2>
-            <h3 className="text-xl font-bold text-[#0F172A] mb-6 italic">Innovative. Reliable. Client-Focused.</h3>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-6">Practical technology, delivered with clarity.</h3>
             <p className="text-[#64748B] text-lg leading-relaxed mb-8">
-              UNIFOTEC-WEB is an information technology and digital solutions company providing professional website development, mobile application development, software solutions, IT services, digital platforms, and technology support for businesses, organizations, institutions, and entrepreneurs.
+              {companyProfile.story[0]}
             </p>
             <Link href="/about">
               <MButton

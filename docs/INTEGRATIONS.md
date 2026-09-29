@@ -9,7 +9,9 @@ The public Next.js site is a static export. Both public API URLs are optional **
 | `NEXT_PUBLIC_CONTACT_API_URL` | blank | Public Node.js contact intake endpoint. Blank keeps the email-draft method. |
 | `NEXT_PUBLIC_PAYMENTS_API_URL` | blank | Future public Node.js hosted-checkout creation endpoint. Blank reports that online payment is unavailable. |
 
-These values are visible in browser code. Never put shared secrets, email credentials, private automation URLs, or gateway keys in `NEXT_PUBLIC_` variables. Configure allowed origins, abuse protection, request validation, storage, and private downstream integrations on the Node.js service. Review the Privacy Policy and operational contact process before enabling contact intake.
+These values are visible in browser code. Never put shared secrets, email credentials, private automation URLs, or gateway keys in `NEXT_PUBLIC_` variables. Configure allowed origins, abuse protection, request validation, storage, and private downstream integrations on the Node.js service. The endpoint URL is public build-time configuration; credentials and workflow secrets must remain server-side. Review the Privacy Policy and operational contact process before enabling contact intake.
+
+The CI static artifact reads `NEXT_PUBLIC_CONTACT_API_URL` from the GitHub Actions repository variable of the same name during `npm run build`. An absent or blank variable builds the email-draft fallback. The endpoint currently allows only the production origin `https://unifotecweb.com`. Preview and localhost browser submissions require the endpoint owner to explicitly allow those origins. A successful command-line request does not prove browser CORS access.
 
 ## Contact
 
@@ -28,7 +30,7 @@ These values are visible in browser code. Never put shared secrets, email creden
 }
 ```
 
-A successful response must be HTTP 2xx with `{ success: true, message: string, enquiryId?: string }`. A rejected request may return `{ success: false, message: string, fieldErrors?: Record<string, string> }`. The UI displays a received/submitted state only after a valid successful response. A timeout, invalid response, or network error shows a general error without claiming receipt. The request times out after 12 seconds. The Node.js service must validate all fields again, reject or safely handle honeypot submissions, store consent evidence according to approved policy, and control the private automation handoff.
+A successful response must be HTTP 2xx with `{ success: true, message: string, enquiryId?: string }`. A rejected request may return `{ success: false, message: string, fieldErrors?: Record<string, string> }`. The UI displays a received/submitted state only after a valid successful response. A timeout, invalid response, or network error shows a general error without claiming receipt. The frontend timeout is 20 seconds (`CONTACT_REQUEST_TIMEOUT_MS`) to allow the observed approximately 11.5-second workflow to complete. A timeout is uncertain delivery: the automation may still finish after the browser stops waiting. The form asks visitors to wait before trying again or contact us directly; it never retries a POST automatically. A rejected response confirms the service did not accept the request; invalid JSON and network errors do not establish receipt. The Node.js service must validate all fields again, reject or safely handle honeypot submissions, store consent evidence according to approved policy, and control the private automation handoff.
 
 When the URL is blank, the same validated form opens a prefilled `mailto:` draft. The visitor must review and send it in their email application. The UI explicitly says the website has not sent the message.
 

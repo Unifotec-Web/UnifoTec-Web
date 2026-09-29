@@ -25,9 +25,11 @@ export type ContactResponse = ContactSuccessResponse | ContactErrorResponse;
 export type ContactSubmissionResult =
   | { status: "unconfigured" }
   | { status: "success"; response: ContactSuccessResponse }
+  | { status: "timeout" }
   | { status: "error"; response: ContactErrorResponse };
 
-const defaultTimeoutMs = 12000;
+// Allow the observed ~11.5-second automation to complete with headroom.
+export const CONTACT_REQUEST_TIMEOUT_MS = 20000;
 const genericError = "We could not send your enquiry. Please try again or use email.";
 
 export function getContactMethod(apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL): "api" | "email-draft" {
@@ -76,7 +78,7 @@ export function createContactMailto(request: ContactRequest, emailHref: string):
 function isPublicApiUrl(value: string): boolean {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" || (url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname));
+    return url.protocol === "https:" || (process.env.NODE_ENV === "development" && url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname));
   } catch { return false; }
 }
 
@@ -101,23 +103,31 @@ function parseContactResponse(value: unknown): ContactResponse | null {
 export async function submitContactRequest(request: ContactRequest, options: { apiUrl?: string; fetchImpl?: typeof fetch; timeoutMs?: number } = {}): Promise<ContactSubmissionResult> {
   const apiUrl = options.apiUrl ?? process.env.NEXT_PUBLIC_CONTACT_API_URL;
   if (!apiUrl?.trim()) return { status: "unconfigured" };
-  if (!isPublicApiUrl(apiUrl)) return { status: "error", response: { success: false, message: "Contact service is not configured correctly. Please use email." } };
+  const endpoint = apiUrl.trim();
+  if (!isPublicApiUrl(endpoint)) return { status: "error", response: { success: false, message: "Contact service is not configured correctly. Please use email." } };
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? defaultTimeoutMs);
+  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? CONTACT_REQUEST_TIMEOUT_MS);
   try {
-    const response = await (options.fetchImpl ?? fetch)(apiUrl, {
+    const response = await (options.fetchImpl ?? fetch)(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(request),
       signal: controller.signal,
     });
-    const parsed = parseContactResponse(await response.json());
+    let body: unknown;
+    try { body = await response.json(); } catch {
+      if (controller.signal.aborted) return { status: "timeout" };
+      return { status: "error", response: { success: false, message: "The contact service returned an invalid response. Please use email." } };
+    }
+    const parsed = parseContactResponse(body);
     if (response.ok && parsed?.success) return { status: "success", response: parsed };
     if (parsed && !parsed.success) return { status: "error", response: parsed };
+    if (!response.ok) return { status: "error", response: { success: false, message: "The contact service could not accept your enquiry. Please try again or use email." } };
     return { status: "error", response: { success: false, message: genericError } };
   } catch {
-    return { status: "error", response: { success: false, message: controller.signal.aborted ? "The request timed out. Please try again or use email." : genericError } };
+    if (controller.signal.aborted) return { status: "timeout" };
+    return { status: "error", response: { success: false, message: "We could not connect to the contact service. Please try again or use email." } };
   } finally {
     clearTimeout(timeout);
   }

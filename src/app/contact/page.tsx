@@ -53,6 +53,9 @@ export default function ContactPage() {
         window.location.href = createContactMailto(request, company.emailHref);
       } else if (result.status === "success") {
         setSuccessMessage(result.response.message);
+        setForm(initialForm);
+      } else if (result.status === "timeout") {
+        setGeneralError("We could not confirm the submission. It may still have been received. Please wait before trying again, or contact us directly.");
       } else {
         setGeneralError(result.response.message);
         setFieldErrors(result.response.fieldErrors ?? {});
@@ -89,7 +92,7 @@ export default function ContactPage() {
           <div className="self-start rounded-3xl border border-gray-100 bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 lg:p-10">
             <h2 className="mb-3 text-2xl font-bold text-dark">Send a Technical Inquiry</h2>
             <p className="mb-7 text-sm leading-relaxed text-grey">{method === "api" ? "This form sends your enquiry to our contact service. We will confirm only after it accepts your request." : "This form opens your email application with a prefilled draft. Review and send it yourself; the website does not send it automatically."}</p>
-            {successMessage ? <div role="status" aria-live="polite" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-[#214b3d]"><CheckCircle2 aria-hidden="true" className="mb-3 h-7 w-7" /><h3 className="text-lg font-bold">Enquiry submitted</h3><p className="mt-2 text-sm leading-relaxed">{successMessage}</p></div> :
+            {successMessage ? <div role="status" aria-live="polite" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-[#214b3d]"><CheckCircle2 aria-hidden="true" className="mb-3 h-7 w-7" /><h3 className="text-lg font-bold">Enquiry submitted</h3><p className="mt-2 text-sm leading-relaxed">{successMessage}</p><button type="button" onClick={() => { setSuccessMessage(""); setStatusMessage(""); setFieldErrors({}); setGeneralError(""); }} className="mt-4 rounded-lg bg-[#285749] px-4 py-2 text-sm font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#285749]">Send another enquiry</button></div> :
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <FormField id="contact-name" label="Full Name" error={fieldErrors.name}><input id="contact-name" type="text" autoComplete="name" required value={form.name} onChange={(event) => updateField("name", event.target.value)} aria-invalid={!!fieldErrors.name} aria-describedby={fieldErrors.name ? "contact-name-error" : undefined} className={inputClass} /></FormField>

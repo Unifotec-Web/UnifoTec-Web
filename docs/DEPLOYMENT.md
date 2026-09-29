@@ -26,7 +26,9 @@ Old paths (`/start-a-project`, `/services/website-dev`, and removed dynamic/samp
 
 ## Optional public API configuration
 
-`NEXT_PUBLIC_CONTACT_API_URL` and `NEXT_PUBLIC_PAYMENTS_API_URL` are documented in `.env.example` and `docs/INTEGRATIONS.md`. They are embedded at build time in the static export. Leave both blank for the current cPanel artifact: contact opens an email draft and online payment is unavailable. Set a variable only for an approved public Node.js endpoint, rebuild and reverify `out/`, then upload the new artifact. Never put private automation URLs or credentials in public variables.
+`NEXT_PUBLIC_CONTACT_API_URL` and `NEXT_PUBLIC_PAYMENTS_API_URL` are documented in `.env.example` and `docs/INTEGRATIONS.md`. They are embedded at build time in the static export. Set the GitHub Actions repository variable `NEXT_PUBLIC_CONTACT_API_URL` to the approved public HTTPS endpoint before building the `cpanel-static-site` artifact. If it is absent or blank, the build remains valid and contact opens an unsent email draft. Leave `NEXT_PUBLIC_PAYMENTS_API_URL` blank. Rebuild and reverify `out/` after any contact URL change. The contact URL is public configuration; credentials and workflow secrets remain server-side.
+
+The contact browser request times out after 20 seconds. A timeout has uncertain delivery, so visitors should wait before retrying or use direct contact details; the form does not automatically retry. Rejected and invalid responses do not confirm receipt. The endpoint currently permits only `https://unifotecweb.com` as a browser origin. Preview and localhost real-browser requests require those origins to be explicitly allowed by the endpoint owner; command-line success does not establish browser CORS access.
 
 ## Backend boundary
 

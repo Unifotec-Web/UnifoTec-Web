@@ -76,13 +76,34 @@ export type TeamMember = {
 };
 
 export const teamMembers: readonly TeamMember[] = [
-  { id: "chief-executive-officer", role: "Chief Executive Officer" },
-  { id: "lead-developer", role: "Lead Developer" },
-  { id: "frontend-developer", role: "Frontend Developer" },
-  { id: "backend-developer", role: "Backend Developer" },
-  { id: "ui-ux-designer", role: "UI/UX Designer" },
-  { id: "digital-marketing-specialist", role: "Digital Marketing Specialist" },
-  { id: "marketing-business-development-specialist", role: "Marketing & Business Development Specialist" },
+  {
+    id: "oscar-ahadzi",
+    name: "Mr. Ahadzi Oscar",
+    role: "CEO",
+    imagePath: "/images/team/oscar-ahadzi.webp",
+    imageAlt: "Mr. Ahadzi Oscar, CEO of UNIFOTEC-WEB",
+  },
+  {
+    id: "kevin-kimurgor",
+    name: "Kevin Kimurgor",
+    role: "Lead Developer & Full-Stack Developer",
+    imagePath: "/images/team/kevin-kimurgor.webp",
+    imageAlt: "Kevin Kimurgor, Lead Developer and Full-Stack Developer at UNIFOTEC-WEB",
+  },
+  {
+    id: "ernest-simpi",
+    name: "Ernest Simpi",
+    role: "Software Engineer & Administrator",
+    imagePath: "/images/team/ernest-simpi.webp",
+    imageAlt: "Ernest Simpi, Software Engineer and Administrator at UNIFOTEC-WEB",
+  },
+  {
+    id: "george-williams",
+    name: "George Williams",
+    role: "Marketing Executive",
+    imagePath: "/images/team/george-williams.webp",
+    imageAlt: "George Williams, Marketing Executive at UNIFOTEC-WEB",
+  },
 ] as const;
 
 export const teamRoles = teamMembers.map(({ role }) => role);
